@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+    <style>
+        body{
+            margin: 0px;
+        }
+        /* navbar */
+        nav{
+            width: 100%;
+            height: 90px;
+            /* background-color: aqua; */
+            border: 2px solid black;
+            overflow: hidden;
+        }
+        /* logo */
+        .logo{
+            float: left;
+            width: 20%;
+            height: 100%;
+            /* background-color: black; */
+        }
+        .logo img {
+            position:relative;
+            top: 10%;
+            width: 70px;
+            margin-left: 6%;
+        }
+        .logo #siteName {
+            position:relative;
+            top: -20%;
+            /* left: 10%; */
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: coral;
+        }
+        .nav-link{
+            float: left;
+            width: 60%;
+            height: 100%;
+        }
+        /* .nav-link a{
+        } */
+
+        .nav-link ul {
+            list-style-type: none;
+            /* position: absolute; */
+            margin-left: 27%;
+            /* left: 38%; */
+        }
+        .nav-link ul li {
+            float: left;
+            margin-right: 20px;
+            
+        }
+        /* cart */
+        .cart{
+            width: 20%;
+            height: 100%;
+            /* background-color: aliceblue; */
+            float: left;
+        }
+        .cart #search{
+            width: 40px;
+            margin-top: 5%;
+            margin-left: 40px;
+            margin-right: 10px;
+        }
+        .cart #cart{
+            width: 40px;
+            margin-top: 5%;
+            /* margin-left: 20px; */
+        }
+        .cart label{
+            position:relative;
+            font-size: 25px;
+            top:-5%;
+        }
+
+        .container {
+            width: 98%;
+            margin-left: 1%;
+            align-content: center;
+            /* display: inline; */
+            /* background-color: grey; */
+        }
+        .container .yourcart{
+            width: 65%;
+            float: left;
+            /* background-color: black; */
+        }
+        .main-cart {
+            height: 250px;
+        }
+        .main-cart #price{
+            font-size: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        tfoot #Subtotal {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+        }
+        /* summary */
+        .summary{
+            margin-left: 5%;
+            margin-top: 40px;
+            padding:1%;
+            background-color:rgb(184, 184, 184);
+            width: 25%;
+            float: left;
+        }
+        .summary table{
+          width: 100%;
+          height: 350px;
+          font-weight: bold;
+        }
+        
+        .summary table hr{
+            height: 2px;
+            background-color: white;
+        }
+
+        .summary button{
+          width: 100%;
+          height: 40px;
+          background-color: blue;
+          color: white;
+          font-weight: bold;
+        }
+
+        /* footer */
+        footer {
+            margin-top: 45%;
+            width: 100%;
+            height: 90px;
+            /* background-color: aqua; */
+            border: 2px solid black;
+            overflow: hidden;
+        }
+        .footer-top{
+            float: left;
+            margin-left: 1%;
+            margin-right: 2%;
+            width: 97%;
+            height: 50%;
+        }
+
+        .footer-top-left {
+            float: left;
+            width: 50%;
+            /* margin-bottom: 0px; */
+        }
+        .footer-top-left h4{
+            float: left;
+            /* width: 100; */
+            margin-bottom: 0px;
+        }
+        .footer-top-right {
+            float: right;
+            width: 50%;
+            /* margin-bottom: 0px; */
+        }
+        .footer-top-right h4{
+            float: right;
+            /* width: 100; */
+            margin-bottom: 0px;
+        }
+
+        .footer-top ul {
+            float: left;
+        }
+        .footer-top ul li{
+            float: left;
+            list-style-type: none;
+            margin-right: 20px;
+        }
+        .footer-bottom {
+            margin-left: 1%;
+            margin-right: 2%;
+            width: 97%;
+            height: 50%;
+        }
+        .footer-bottom-left{
+            float: left;
+            width: 50%;
+        }
+        .footer-bottom-right{
+            float: right;
+            /* width: 50%; */
+        }
+        .footer-bottom-right .input-subscribe{
+            border: 2px solid black;
+            background-color: rgb(181, 181, 181);
+        }
+
+        .footer-bottom-right .input-subscribe label{
+           margin-right: 5px;
+        }
+
+        /* .footer-bottom .nav-foot{
+            width: 100%;
+            height: 100%;
+        } */
+    </style>
+<body>
+   <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/pngwing.com.png" alt="logo">
+                <label id="siteName">Belanjaku</label>
+            </div>
+            <div class="nav-link">
+                <ul>
+                    <li>
+                        <a href="">Category 1</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href=""> Category 2</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href=""> Category 3</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cart">
+                <img id="search" src="assets/search-icon-png-21.png" alt="search">
+                <img id="cart" src="assets/png_shopping_cart_33845.png" alt="cart">
+                <label>Cart (1)</label>
+            </div>
+        </nav>
+   </header>
+   <main>
+       <div class="container">
+            <div class="yourcart">
+                <h1>Your Chart</h1>
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th colspan="4"><hr></th>
+                        </tr>
+                        <tr>
+                            <td width="70%" colspan="2">Item</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                        </tr>
+                        <tr>
+                            <th colspan="4"><hr></th>
+                        </tr>
+                    </thead>
+                    <tbody class="main-cart">
+                        <tr>
+                            <td width="20%">
+                                <img src="assets/t-shirt.jpg" alt="cart-image" width="200px" >
+                                
+                            </td>
+                            <td width="50%">
+                                <label for="">T-Shirt</label><br>
+                                <label for="">Size : Small</label>
+                            </td>
+                            <td><label id="price">$20.00</label></td>
+                            <td>
+                                <select name="" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4"><hr></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right">
+                                <label for="">Subtotal: </label>
+                                <label id="Subtotal">$20.00</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><hr></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="summary">
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+                                <h2>Summary (1 Item)</h2>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td align="right">$20.00</td>
+                        </tr>
+                        <tr>
+                            <td>Shiping</td>
+                            <td align="right">-</td>
+                        </tr>
+                        <tr>
+                            <td>Est.Toxes</td>
+                            <td align="right">-</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td align="right">$20.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <a href="checkout_0110222066_MuhammadRifkySyiahbudin.html">
+                                    <button>
+                                        Checkout
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+   </main>
+   <footer>
+        <div class="footer-top">
+            <div class="footer-top-left">
+                <h4>Belanjaku</h4>
+                <ul>
+                    <li>
+                        <a href="">Category X</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href=""> Category Y</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href=""> Category Z</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-top-right">
+                <h4>Stay In Touch! Join Our Newsletter</h4>
+            </div>
+        </div>
+           
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <div class="image-foot">
+                    <img id="#visa" src="assets/visa.jpg" alt="visa" width="40px">
+                    <img id="mastercard" src="assets/mastercard.png" alt="mastercard" width="40px">
+                    <img id="PayPal" src="assets/PayPal.svg.png" alt="PayPal" width="60px">
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <div class="input-subscribe">
+                    <input type="text" name="" id="" width="100px" placeholder="Enter Email">
+                    <label for="">Subscribe</label>
+                </div>
+            </div>
+        </div>
+   </footer>
+</body>
+</html>
