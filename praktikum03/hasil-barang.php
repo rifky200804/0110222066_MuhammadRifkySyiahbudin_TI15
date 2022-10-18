@@ -75,7 +75,7 @@
         $email = "-";
     }
 
-    if(isset($_FILES['image']) && !empty($_FILES['image'])){
+    if(isset($_FILES['image']) && !empty($_FILES['image']['name'])){
         $image = $_FILES['image'];
         $dirUpload = "public/files/";
         $nameFile = time()."_".$image['name'];
