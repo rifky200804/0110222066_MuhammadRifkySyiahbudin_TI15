@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* baris 1 */
+.container .kotak:nth-child(1){
+    width: 20%;
+    background-color: yellow;
+}
+.container .kotak:nth-child(2){
+    width: 79%;
+    background-color: orange;
+}
+
+.kotak{
+    height: 100px;
+}
+ /* baris 2 */
+.container .isi:nth-child(1){
+    width: 20%;
+    background-color: greenyellow;
+}
+
+.container .isi:nth-child(2){
+    width: 58%;
+    background-color: grey;
+}
+
+.container .isi:nth-child(3){
+    width: 20%;
+    background-color: aqua;
+}
+
+.isi{
+    height: 700px;
+}
+
+.kotak-bawah{
+    margin-top: 20px;
+    width: 100%;
+    height: 100px;
+    background-color: blue;
+}

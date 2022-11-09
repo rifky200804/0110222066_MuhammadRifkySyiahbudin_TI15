@@ -1,0 +1,11 @@
+.container{
+    background-color: lightyellow;
+    justify-content: space-evenly;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container img{
+    width: 200px;
+}
