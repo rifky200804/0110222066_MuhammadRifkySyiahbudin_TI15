@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 9.3</title>
+</head>
+<body>
+    <h2>Biaya Parkir</h2>
+
+    <form action="">
+        Jam Masuk : <input type="number" name="masuk" id="masuk" required>
+        <br>
+        Jam Keluar : <input type="number" name="keluar" id="keluar" required>
+        <br>
+        <input type="button" value="hitung" onclick="parkir()">
+        <br>
+        <input type="text" name="biaya" id="biaya" value="Rp. 0" disabled>
+        <br>
+        <span id="error" style="color: red;"></span>
+    </form>
+    <script>
+        function parkir(){
+            // masuk
+            let masuk = document.getElementById('masuk').value
+            // keluar
+            let keluar = document.getElementById('keluar').value
+
+            // total parkir
+            let totalJam = keluar - masuk
+
+            // tarif awal
+            let tarifAwal = 3000
+            // selisih waktu
+            let selisihWaktu = 0;
+            if (totalJam > 2) {
+                selisihWaktu = Math.round(totalJam - 2);
+            }
+            // tarif lanjutan
+            let tarifLanjut = selisihWaktu * 1000
+            // total tarif
+            let totalTarif = tarifAwal + tarifLanjut
+
+            if(masuk == "" || keluar == ""){
+                document.getElementById('error').innerHTML = "Masuk dan Keluar Harus Di Isi"
+            }else{
+                document.getElementById('biaya').value = "Rp. "+totalTarif
+                document.getElementById('error').innerHTML = ""
+            }
+        }
+
+    </script>
+</body>
+</html>

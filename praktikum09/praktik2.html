@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 9.2</title>
+</head>
+<body>
+    <h2>Dollar Ke Rupiah</h2>
+    <form action="">
+        <label for="">Dollar : </label>
+        <input type="number" name="dollar" id="dollar">
+        <br>
+        <label for=""> Kurs Rupiah : </label>
+        <input type="number" id="kurs_rupiah" value="14650">
+        <br>
+        <input type="button" onclick="dollar_rupiah()" value="hitung">
+        <br>
+        <input type="text" name="hasil" id="hasil" value="Rp. 0" disabled>
+    </form>
+    <br>
+
+    <h2>Rupiah Ke Dollar</h2>
+    <form action="">
+        <label for="">Dollar : </label>
+        <input type="number" name="rupiah" id="rupiah">
+        <br>
+        <input type="button" onclick="rupiah_dollar()" value="hitung">
+        <br>
+        <input type="text" name="hasil2" id="hasil2" disabled value="$0.00">
+    </form>
+
+    <script>
+        // dollar to rupiah
+        function dollar_rupiah(){
+            // ambil nilai di input dollar
+            let dollar = document.getElementById('dollar').value;
+            // ambil nilai di input kurs rupiah
+            let kurs_rupiah = document.getElementById('kurs_rupiah').value;
+            // hitung nilai
+            let hitungToRupiah = dollar * kurs_rupiah;
+            
+            document.getElementById('hasil').value = "Rp. " + hitungToRupiah;
+        }
+        // rupiah to dollar
+        function rupiah_dollar(){
+            // ambil nilai di input rupiah
+            let rupiah = document.getElementById('rupiah').value;
+            // kurs dollar
+            let kurs_dollar =(1/14650);
+            // hitung nilai
+            let hitungToDollar = rupiah * kurs_dollar;
+            
+            document.getElementById('hasil2').value = "$" + hitungToDollar.toFixed(2);
+        }
+    </script>
+</body>
+</html>
