@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Mata Uang</title>
+</head>
+<body>
+    <form style="background-color: aqua;">
+        <fieldset>
+            <legend>Kurs Rupiah - Mata Uang Asing</legend>
+            <table border="1" cellpadding="0px" cellspacing="0px">
+                <thead>
+                    <tr>
+                        <th>Masukan Nilai</th>
+                        <th>Valas</th>
+                        <th>Nilai Rupiah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td><input type="number" name="uang" id="uang" onchange="kurs()"></td>
+                    <td>
+                        <select id="pilihan" onchange="kurs()">
+                            <option value="" hidden>-- pilih --</option>
+                            <option value="usd">Dollar US</option>
+                            <option value="sd">Dollar Singapore</option>
+                            <option value="rm">Ringgit Malaysia</option>
+                            <option value="yen">Yen Jepang</option>
+                            <option value="eu">Euro</option>
+                            <option value="riyal">Riyal Arab Saudi</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="konversi" id="konversi" disabled></td>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <!-- javascript code -->
+    <script>
+        function kurs(){
+            let uang = document.getElementById('uang').value;
+            let mataUang = document.getElementById('pilihan').value;
+            let rumus;
+
+            if(mataUang == 'usd'){
+                rumus = uang * 9915
+                document.getElementById('konversi').value ="Rp. " + rumus
+            }else if(mataUang == 'sd'){
+                rumus = uang * 13472
+                document.getElementById('konversi').value ="Rp. " + rumus
+            }else if(mataUang == 'rm'){
+                rumus = uang * 874
+                document.getElementById('konversi').value ="Rp. " + rumus
+            }else if(mataUang == 'yen'){
+                rumus = uang * 120
+                document.getElementById('konversi').value ="Rp. " + rumus
+            }else if(mataUang == 'eu'){
+                rumus = uang * 15888
+                document.getElementById('konversi').value ="Rp. " +  rumus
+            }else if(mataUang == 'riyal'){
+                rumus = uang * 3592
+                document.getElementById('konversi').value ="Rp. " + rumus
+            }else{
+                rumus = "Anda Belum Memilih Mata Uang"
+                document.getElementById('konversi').value = rumus
+            }
+            // console.log(rumus);
+        }
+    </script>
+</body>
+</html>

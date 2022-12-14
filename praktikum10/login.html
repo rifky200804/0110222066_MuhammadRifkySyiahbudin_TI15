@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form id="form" onsubmit="kirim()">
+        <label for="username"/>Username : </label>
+        <input type="text" name="username" id="username">
+        <br>
+        <label for="password">password : </label>
+        <input type="password" name="password" id="password">
+        <br>
+        <button type="submit">Kirim</button>
+
+        <p>Username dan password yang benar :</p>
+        <p>Username : admin</p>
+        <p>Password : intergrity</p>
+    </form>
+
+    <!-- code of Javascript -->
+    <script>
+        function kirim(){
+            let user = document.getElementById('username').value;
+            let pass = document.getElementById('password').value;
+            let form = document.getElementById('form');
+            
+            if(user == 'admin' && pass == 'integrity'){
+                form.setAttribute('action','dashboard.html')
+                window.alert("success Login");
+            }else{
+                window.alert("Failed Login");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-form">
+        <div class="card-header">
+            <h1>Form</h1>
+        </div>
+        <div class="card-body">
+            <form onsubmit="">
+                <div class="row">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="name" autocomplete="off" placeholder="Your Name...">
+                    <div id="name-error" class="error"></div>
+                </div>
+                <div class="row">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" autocomplete="off" placeholder="Your Email...">
+                    <div id="email-error" class="error"></div>
+                </div>
+
+                <div class="row">
+                    <label>Jam Berangkat</label>
+                    <input type="time" class="form-control" id="time" autocomplete="off" placeholder="Your time...">
+                    <div id="time-error" class="error"></div>
+                </div>
+
+                <div class="row">
+                    <label>Tujuan Keberangkatant</label>
+                    <input type="text" class="form-control" id="tujuan" autocomplete="off" placeholder="Your tujuan...">
+                    <div id="tujuan-error" class="error"></div>
+                </div>
+                <div class="row">
+                    <label>Jumlah Tiket</label>
+                    <input type="number" class="form-control" id="JumlahTiket" autocomplete="off" placeholder="Jumlah Tiket...">
+                    <div id="JumlahTiket-error" class="error"></div>
+                </div>
+
+                <button type="button" onclick="send()" class="btn btn-primary form-control">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card-form">
+        <div class="card-header">
+            <h1>Result</h1>
+        </div>
+        <div class="card-body">
+            <div id="result">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td><label id="result-name"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><label id="result-email"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Jam Berangkat</td>
+                        <td><label id="result-time"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Tujuan</td>
+                        <td><label id="result-tujuan"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Tiket</td>
+                        <td><label id="result-jumlahTiket"></label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // name
+        let setNama = document.getElementById('name')
+        let setErrorNama = document.getElementById('name-error')
+        // email
+        let setEmail = document.getElementById('email')
+        let setErrorEmail = document.getElementById('email-error')
+         // Time
+        let setTime = document.getElementById('time')
+        let setErrorTime = document.getElementById('time-error')
+        // tujuan
+        let setTujuan = document.getElementById('tujuan')
+        let setErrorTujuan = document.getElementById('tujuan-error')
+        // jumlah tiket
+        let setJumlahTiket = document.getElementById('JumlahTiket')
+        let setErrorJumlahTiket = document.getElementById('JumlahTiket-error')
+
+        let result = document.getElementById('result')  
+        result.style.display = 'none'
+
+        function send(){
+            // console.log(1323)
+            let check = validations()
+            // console.log(check)
+            if(check == true){
+                // console.log(true)
+                let data = {
+                    'name':setNama.value,
+                    'email':setEmail.value,
+                    'time':setTime.value,
+                    'tujuan':setTujuan.value,
+                    'jumlahTiket':setJumlahTiket.value
+                }
+                console.log(data)
+                results(data)
+                // alert('Berhasil gess')
+            }else{
+                result.style.display = 'none'
+
+                // alert('Gagal')
+                console.log(false);
+            }
+            
+        }
+
+        function validations(){
+            if(setNama.value == "" || setNama.value == undefined || setNama.value.length > 30){
+                setErrorNama.innerHTML = "Name is required"
+                if(setNama.value.length > 30){
+                    setErrorNama.innerHTML = "Name up to 30 Character"
+                }
+                // console.log(setNama.value.length)
+                setNama.setAttribute('class','form-control error-border')
+                return false;
+            }else{
+                setErrorNama.innerHTML = ""
+                setNama.setAttribute('class','form-control')
+            }
+
+            let atps=setEmail.value.indexOf("@");
+	        let dots=setEmail.value.lastIndexOf(".");
+            if(setEmail.value == "" || setEmail.value == undefined || atps <= 0 || dots <= 0){
+                setErrorEmail.innerHTML = "Email is required"
+                    if(atps <= 0 || dots <= 0){
+                        setErrorEmail.innerHTML = "invalid email"
+                    }
+                setEmail.setAttribute('class','form-control error-border')
+                return false;
+
+            }else{
+                setErrorEmail.innerHTML = ""
+                setEmail.setAttribute('class','form-control')
+            }
+
+            if(setTime.value == "" || setTime.value == undefined){
+                setErrorTime.innerHTML = "Time is required"
+                setTime.setAttribute('class','form-control error-border')
+                return false;
+
+            }else{
+                setErrorTime.innerHTML = ""
+                setTime.setAttribute('class','form-control')
+            }
+
+            if(setTujuan.value == "" || setTujuan.value == undefined){
+                setErrorTujuan.innerHTML = "Tujuan is required"
+                setTujuan.setAttribute('class','form-control error-border')
+                return false;
+
+            }else{
+                setErrorTujuan.innerHTML = ""
+                setTujuan.setAttribute('class','form-control')
+            }
+
+            if(setJumlahTiket.value == "" || setJumlahTiket.value == undefined || setJumlahTiket.value <= 0 || setJumlahTiket.value > 10){
+                setErrorJumlahTiket.innerHTML = "Jumlah Tiket is required"
+                if(setJumlahTiket.value <= 0 || setJumlahTiket.value > 10){
+                    setErrorJumlahTiket.innerHTML = "minimum of 1 ticket and maximum of 10 tickets"
+                }
+                setJumlahTiket.setAttribute('class','form-control error-border')
+                return false;
+
+            }else{
+                setErrorJumlahTiket.innerHTML = ""
+                setJumlahTiket.setAttribute('class','form-control')
+            }
+            
+            return true;
+
+        }
+
+        function results(data){
+            result.style.display = 'block'
+            document.getElementById('result-name').innerHTML = " = "+data.name
+            document.getElementById('result-email').innerHTML = " = "+data.email
+            document.getElementById('result-time').innerHTML = " = "+data.time+" AM"
+            document.getElementById('result-tujuan').innerHTML = " = "+data.tujuan
+            document.getElementById('result-jumlahTiket').innerHTML = " = "+data.jumlahTiket
+        }   
+    </script>
+</body>
+</html>
