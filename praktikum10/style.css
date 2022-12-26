@@ -1,7 +1,7 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-color: cyan;
+    background-color: blue;
 }
 
 .card-form{
@@ -18,12 +18,12 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: darkgray;
+    background-color: black;
     border-bottom: 2px solid black;
 }
 
 .card-header h1{
-    color:black;
+    color:white;
 }
 
 .card-body{

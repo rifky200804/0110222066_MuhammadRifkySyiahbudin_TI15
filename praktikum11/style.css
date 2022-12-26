@@ -1,0 +1,26 @@
+#game {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #choices {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .choice {
+    width: 150px;
+    height: 150px;
+    border: none;
+    outline: none;
+    background-color: #f1f1f1;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .choice:hover {
+    background-color: #ccc;
+  }
+  

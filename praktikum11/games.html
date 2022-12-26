@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game">
+        <h1>Batu Gunting Kertas</h1>
+        <div id="result">
+          <p id="player-choice"></p>
+          <p id="message"></p>
+        </div>
+        <div id="choices">
+          <button id="batu" class="choice"><img src="batu.png" alt="Batu"></button>
+          <button id="gunting" class="choice"><img src="gunting.png" alt="Gunting"></button>
+          <button id="kertas" class="choice"><img src="kertas.png" alt="Kertas"></button>
+        </div>
+
+        <div class="computer-result">
+            <p id="computerChoice"></p>
+        </div>
+    </div>
+      
+    <script>
+        let choices = document.querySelectorAll('.choice');
+        let computerChoice = document.getElementById('computerChoice');
+        let playerChoice = document.getElementById('player-choice');
+        let message = document.getElementById('message');
+
+        choices.forEach(choice => {
+            choice.addEventListener('click', e => {
+                let valuePlayerChoice = e.target.id;
+                let valueComputerChoice = getComputerChoice();
+                let result = getResult(valuePlayerChoice, valueComputerChoice);
+                console.log(valueComputerChoice);
+                console.log(valuePlayerChoice);
+                console.log(result);
+                displayResult(valueComputerChoice, valuePlayerChoice, result);
+            });
+        });
+
+        function getComputerChoice() {
+            let choices = ['batu', 'gunting', 'kertas'];
+            let randomIndex = Math.floor(Math.random() * 3);
+            return choices[randomIndex];
+        }
+
+        function getResult(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return 'Seri';
+            } else if (playerChoice === 'batu') {
+                if(computerChoice == 'gunting'){
+                    return 'Menang'
+                }else{
+                    return 'Kalah'
+               }
+            } else if (playerChoice === 'gunting') {
+               if (computerChoice == 'kertas') {
+                    return 'Menang'
+               } else {
+                    return 'Kalah'
+               }
+            } else if (playerChoice === 'kertas') {
+                if (computerChoice == 'batu') {
+                    return 'Menang'
+                }else{
+                    return 'Kalah'
+                }
+            }
+        }
+
+        function displayResult(valueComputerChoice, valuePlayerChoice, result) {
+            message.innerHTML = `Hasilnya: <strong>${result}`
+            playerChoice.innerHTML = `Kamu memilih: ${valuePlayerChoice}`;
+            computerChoice.innerHTML = `Komputer memilih: ${valueComputerChoice}`;
+            
+            if (result == 'Menang') {
+                window.alert(`Selamat Kamu ${result}`)
+            }else if(result = 'Kalah'){
+                window.alert(`Sayang Sekali Kamu ${result}`)
+            }else{
+                window.alert(`Kamu ${result}`)
+            }
+        }
+    </script>
+</body>
+</html>

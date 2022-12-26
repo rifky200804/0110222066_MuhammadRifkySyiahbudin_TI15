@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengedit Element</title>
+</head>
+<body>
+    <h1>Belajar DOM Javascript</h1>
+    <div id="box">
+        <div id="p1">Paragraf 1</div>
+    </div>
+
+    <script>
+        // create Element
+        let element = document.createElement("h2")
+        let text = document.createTextNode("Belajar Web")
+        let box = document.getElementById("box")
+        let p1 = document.getElementById("p1")
+
+        // membuat isi h2
+        element.appendChild(text)
+        box.appendChild(element)
+        
+
+        // edit Element 
+        let element2 = document.createElement("h1")
+        let text2 = document.createTextNode("Belajar Python"
+        )
+        // membuat isi h2
+        element2.appendChild(text2)
+        // sisipkan h2 ke box
+        box.replaceChild(element2,p1)
+
+        // menghapus
+        // box.removeChild(element)
+        
+
+    </script>
+</body>
+</html>
