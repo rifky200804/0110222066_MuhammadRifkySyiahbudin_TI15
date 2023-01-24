@@ -1,0 +1,127 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <style>
+        .error-border{
+            border-color:red;
+        }
+    </style>
+</head>
+
+<body class="login-page">
+    <div class="login-box" style="margin: auto;">
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <div class="login-logo">
+                    <h2 class="">Login</h2>
+                    <img src="../assets/img/icon-new.png" alt="Logo E-Directory Mosque" width="70%">
+                    <p class="login-box-msg">E-Directory Mosque</p>
+                </div>
+
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="username" class="form-control" id="username" placeholder="Username" autocomplete="off">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-12">
+                            <button type="button" id="login" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-12 d-flex justify-content-end">
+                        <a href="registrasi.html">Create User</a>
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+
+    <script>
+        let btnLogin = document.getElementById('login')
+
+        btnLogin.addEventListener("click",() => {
+            login()
+        })
+
+        function login(){
+            let request = {}
+            let username = document.getElementById('username')
+            request.username = username.value
+            let password = document.getElementById('password')
+            request.password = password.value
+
+            let checkValiationData = checkValidation(request)
+            if(checkValiationData){
+                if(request.username == 'admin' && request.password == 'admin123'){
+                    alert('Success Login')
+                    let url = 'pages/index.html'
+                    window.location = url
+                }else{
+                    username.setAttribute("class","form-control error-border")
+                    password.setAttribute("class","form-control error-border")
+                    alert('wrong username or password')
+                }
+            }else{
+                username.setAttribute("class","form-control error-border")
+                password.setAttribute("class","form-control error-border")
+                
+                alert("Username or password is Required")
+            }
+            // console.log(check);
+
+        }
+
+        function checkValidation(request){
+            if(request.username == undefined || request.username == '' || request.password == undefined || request.password == ''){
+                return false
+            }else{
+                return true
+            }
+        }
+    </script>
+
+</body>
+
+</html>

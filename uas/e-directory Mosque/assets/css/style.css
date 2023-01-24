@@ -421,7 +421,7 @@ a:hover {
 .hero {
   display: table;
   position: relative;
-  background-image: url(../img/cover.jpg);
+  background-image: url(../img/masjiddianalmahri.jpg);
   background-size: cover;
   padding: 150px 0;
   color: #fff;
@@ -560,7 +560,7 @@ a:hover {
   ================================================== */
 .welcome {
   color: #fff;
-  height: 490px;
+  height: 200px;
   overflow: hidden;
   padding-top: 85px;
   background: url("../img/parallax-bg.jpg") center top no-repeat;
